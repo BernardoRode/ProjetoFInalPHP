@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f5;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0e0e0e;
+    
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    height: 150px;
+}
+
+.cabecalho h1 {
+    color: #f0f0f5;
+    font-size: 35px;
+    text-align: center;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    position: relative;
+    left: -55px;
+}
+
+.cabecalho h3 {
+    font-size: 16px;
+    color: #f0f0f5;
+    text-align: center;
+    position: relative;
+    left: -55px;
+}
+
+.logo {
+    max-height: 190px;
+    margin-top: 0;
+    float: left;
+    width: 190px;
+    margin-top: -40px;
+    position: relative;
+    right: -55px;
+}
+
+.buttons {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.buttons a {
+    background-color: #00c6ff;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: background 0.3s ease;
+}
+
+.buttons a:hover {
+    background-color: #009ec6;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-table th,
+.user-table td {
+    padding: 12px;
+    text-align: left;
+}
+
+.user-table th {
+    background-color: #0062cc;
+    color: white;
+    font-weight: bold;
+}
+
+.user-table td {
+    background-color: #f9f9f9;
+}
+
+.user-table td a {
+    text-decoration: none;
+    color: #00c6ff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.user-table td a:hover {
+    text-decoration: underline;
+}

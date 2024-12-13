@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+font-family: 'Arial', sans-serif;
+background-image: url(/img/fundo.jpeg);
+color: #333;
+line-height: 1.6;
+margin: 0;
+padding: 0;
+}
+
+header {
+    background-color: #0e0e0e;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    height: 150px;
+}
+
+.cabecalho h1 {
+    color: #f0f0f5;
+    font-size: 35px;
+    text-align: center;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    position: relative;
+    left: -55px;
+}
+
+.cabecalho h3 {
+    font-size: 16px;
+    color: #f0f0f5;
+    text-align: center;
+    position: relative;
+    left: -55px;
+}
+
+.logo {
+    max-height: 190px;
+    margin-top: 0;
+    float: left;
+    width: 190px;
+    margin-top: -40px;
+    position: relative;
+    right: -55px;
+}
+
+.message {
+    text-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    position: relative;
+    left: -60px;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.button-container a {
+    display: inline-block;
+    background-color: #0d7373;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 180px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.button-container a:hover {
+    background-color: #1a8c8c;
+}
+
+@media (min-width: 600px) {
+    .button-container a {
+        width: 45%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .button-container a {
+        width: 30%;
+    }
+}
