@@ -60,103 +60,111 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/cadastroVenda.css">
+    <link rel="stylesheet" href="./css/cadastroVenda.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Serviço</title>
 </head>
 
 <body>
-    <form method="POST">
-        <h1>CADASTRO DE SERVIÇO</h1>
+    <div class="container">
+        <form method="POST" class="form-card">
+            <h1>Cadastro de Serviço</h1>
 
-        <label for="data_venda">DATA DA VENDA</label><br>
-        <input type="date" id="data_venda" name="data_venda" placeholder="Digite a data da venda" required>
-        <br><br>
+            <div class="form-group">
+                <label for="data_venda">Data da Venda</label>
+                <input type="date" id="data_venda" name="data_venda" placeholder="Digite a data da venda" required>
+            </div>
 
-        <label for="valor_total">Valor total</label><br>
-        <input type="number" id="valor_total" name="valor_total" placeholder="Digite o valor total da venda" required>
-        <br><br>
+            <div class="form-group">
+                <label for="valor_total">Valor Total</label>
+                <input type="number" id="valor_total" name="valor_total" placeholder="Digite o valor total da venda"
+                    required>
+            </div>
 
-        <label for="servico">Serviço:</label><br>
-        <!-- CAIXA DE SELEÇÃO SELECT PARA SELECIONAR O CLIENTE -->
-        <select id="servico_id" name="servico_id" required>
-            <option value="">-- Selecione o tipo de servico --</option>
-            <?php foreach ($serv as $servico): ?>
-                <option value="<?= $servico['id'] ?>">
-                    <?= $servico['tipo_servico'] ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <br><br>
+            <div class="form-group">
+                <label for="servico_id">Serviço</label>
+                <select id="servico_id" name="servico_id" required>
+                    <option value="">-- Selecione o tipo de serviço --</option>
+                    <?php foreach ($serv as $servico): ?>
+                        <option value="<?= $servico['id'] ?>">
+                            <?= $servico['tipo_servico'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-        <label for="funcionario">Funcionario:</label><br>
-        <select id="funcionario_id" name="funcionario_id" required>
-            <option value="">-- Selecione o nome do funcionario --</option>
-            <?php foreach ($func as $f): ?>
-                <option value="<?= $f['id'] ?>">
-                    <?= $f['nome'] ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <br><br>
+            <div class="form-group">
+                <label for="funcionario_id">Funcionário</label>
+                <select id="funcionario_id" name="funcionario_id" required>
+                    <option value="">-- Selecione o nome do funcionário --</option>
+                    <?php foreach ($func as $f): ?>
+                        <option value="<?= $f['id'] ?>">
+                            <?= $f['nome'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-        <label for="pecas_id">Pecas:</label><br>
-        <!-- CAIXA DE SELEÇÃO SELECT PARA SELECIONAR O MODELO DO VEICULO -->
-        <select id="pecas_id" name="pecas_id" required>
-            <option value="">-- Selecione as peças --</option>
-            <?php foreach ($pec as $p): ?>
-                <option value="<?= $p['id'] ?>">
-                    <?= $p['nome'] ?> <!-- Exibe o modelo do veículo -->
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <br><br>
+            <div class="form-group">
+                <label for="pecas_id">Peças</label>
+                <select id="pecas_id" name="pecas_id" required>
+                    <option value="">-- Selecione as peças --</option>
+                    <?php foreach ($pec as $p): ?>
+                        <option value="<?= $p['id'] ?>">
+                            <?= $p['nome'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
+            <div class="form-group">
+                <label for="acessorio_id">Acessórios</label>
+                <select id="acessorio_id" name="acessorio_id" required>
+                    <option value="">-- Selecione os acessórios --</option>
+                    <?php foreach ($ace as $a): ?>
+                        <option value="<?= $a['id'] ?>">
+                            <?= $a['nome'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-        <label for="acessorio_id">Acessorios:</label><br>
-        <!-- CAIXA DE SELEÇÃO SELECT PARA SELECIONAR O MODELO DO VEICULO -->
-        <select id="acessorio_id" name="acessorio_id" required>
-            <option value="">-- Selecione os acessorios --</option>
-            <?php foreach ($ace as $a): ?>
-                <option value="<?= $a['id'] ?>">
-                    <?= $a['nome'] ?> <!-- Exibe o modelo do veículo -->
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <br>
-        <br>
+            <div class="form-group">
+                <label for="veiculo_id">Veículo</label>
+                <select id="veiculo_id" name="veiculo_id" required>
+                    <option value="">-- Selecione um veículo --</option>
+                    <?php foreach ($vei as $v): ?>
+                        <option value="<?= $v['id'] ?>">
+                            <?= $v['modelo'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
+            <div class="form-group">
+                <label for="promocao_id">Promoção</label>
+                <select id="promocao_id" name="promocao_id" required>
+                    <option value="">-- Selecione a promoção --</option>
+                    <?php foreach ($promo as $pr): ?>
+                        <option value="<?= $pr['id'] ?>">
+                            <?= $pr['descricao'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-        <label for="veiculo">Veículo:</label><br>
-        <!-- CAIXA DE SELEÇÃO SELECT PARA SELECIONAR O MODELO DO VEICULO -->
-        <select id="veiculo_id" name="veiculo_id" required>
-            <option value="">-- Selecione um veículo --</option>
-            <?php foreach ($vei as $v): ?>
-                <option value="<?= $v['id'] ?>">
-                    <?= $v['modelo'] ?> <!-- Exibe o modelo do veículo -->
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <br><br>
-
-        <label for="promocao_id">Promoção:</label><br>
-        <!-- CAIXA DE SELEÇÃO SELECT PARA SELECIONAR O MODELO DO VEICULO -->
-        <select id="promocao_id" name="promocao_id" required>
-            <option value="">-- Selecione a promocao --</option>
-            <?php foreach ($promo as $pr): ?>
-                <option value="<?= $pr['id'] ?>">
-                    <?= $pr['descricao'] ?> <!-- Exibe o modelo do veículo -->
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <br><br>
-        <input type="submit" value="ADICIONAR">
-        <input type="button" value="VOLTAR" onclick="history.back()">
-    </form>
+            <div class="form-actions">
+                <input type="submit" value="Adicionar">
+                <input type="button" value="Voltar" onclick="history.back()">
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>

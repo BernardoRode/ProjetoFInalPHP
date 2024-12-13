@@ -1,27 +1,28 @@
 <?php
 session_start();
 include_once './config/config.php';
-include_once './classes/Estoque_pecas.php';
+include_once './classes/Estoque_acessorio.php';
 include_once './classes/usuario.php';
 include_once './classes/Funcionario.php';
+
 $funcionarios = new Funcionario($db);
+
 if (!isset($_SESSION['funcionario_id'])) {
     header('Location: index.php');
     exit();
 }
-$estoque_pecas = new Estoque_pecas($db);
 
-
-$estoque_pecas = new Estoque_pecas($db);
+$usuario = new usuario($db);
+$estoque_acessorios = new Estoque_acessorio($db);
 
 if (isset($_GET['deletar'])) {
     $id = $_GET['deletar'];
-    $estoque_pecas->deletar($id);
-    header('Location: consultarEstoquePecas.php');
+    $estoque_acessorios->deletar($id);
+    header('Location: consultarEstoqueAcessorio.php');
     exit();
 }
 
-$dados = $estoque_pecas->ler();
+$dados = $estoque_acessorios->ler();
 
 function saudacao() {
     $hora = date('H');
@@ -37,51 +38,53 @@ function saudacao() {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <title>Portal</title>
-    <link rel="stylesheet" href="/css/consEstPecas.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal - Estoque de Acessórios</title>
+    <link rel="stylesheet" href="./css/consEstAcess.css">
 </head>
-<body>
-<header>
-        <div class="cabecalho">
 
-        <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">
-            <h1 id="h1_cabecalho">XIRUZÃO AUTO PEÇAS</h1>
-            <h3>Faça login para acessar o sistema e
-                ajudar a manter nosso estoque sempre em movimento.</h3>
+<body>
+    <header>
+        <div class="cabecalho">
+            <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">
+            <h1>XIRUZÃO AUTO PEÇAS</h1>
         </div>
     </header>
 
-    <div class="buttons">
-    <h1>Estoque de peças</h1>
-    <a href="logout.php">Logout</a>
-    </div>
-
     <div class="main-container">
         <table class="user-table">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Quantidade</th>
-            <th>Preço</th>
-            <th>Ação</th>
-        </tr>
-
-        <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
-            <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['nome']; ?></td>
-                <td><?php echo $row['quantidade']; ?></td>
-                <td><?php echo $row['preco']; ?></td>
-                <td>
-                    <a href="editarPecas.php?id=<?php echo $row['id']; ?>">Editar</a>
-                    <a href="consultarEstoquePecas.php?deletar=<?php echo $row['id']; ?>">Deletar</a>
-                </td>
-            </tr>
-        <?php endwhile; ?>
-    </table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
+                    <tr>
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['nome']; ?></td>
+                        <td><?php echo $row['quantidade']; ?></td>
+                        <td><?php echo $row['preco']; ?></td>
+                        <td>
+                            <a href="editarEstoqueAcessorio.php?id=<?php echo $row['id']; ?>">Editar</a>
+                            <a href="consultarEstoqueAcessorio.php?deletar=<?php echo $row['id']; ?>" onclick="return confirm('Tem certeza que deseja deletar este item?');">Deletar</a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
     </div>
-    <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
+
+    <div class="footer">
+        <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
+    </div>
 </body>
+
 </html>

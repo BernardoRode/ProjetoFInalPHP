@@ -25,21 +25,14 @@ if (!isset($_SESSION['funcionario_id'])) {
 <body>
     <header>
         <div class="cabecalho">
-
             <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">
-
             <h1 id="h1_cabecalho">XIRUZÃO AUTO PEÇAS</h1>
-            <h3>Faça login para acessar o sistema e ajudar a manter nosso estoque sempre em movimento.</h3>
         </div>
     </header>
 
-    <div class="message">
-        <H1>Olá <?php echo $_SESSION['funcionario_nome'] ?></H1>
-    </div>
-
     <div class="button-container">
         <h3>consultar</h3>
-        <a href="./consultarCliente.php">consultarCliente</a><br>
+        <a href="./consultarCliente.php">ConsultarCliente</a><br>
         <a href="./consultarVeiculo.php">Consultar veiculo</a><br>
         <a href="./consultarFuncionario.php">Consultar funcionario</a><br>
         <a href="./consultarEstoqueAcessorio.php">Consultar Acessórios</a><br>
@@ -47,20 +40,25 @@ if (!isset($_SESSION['funcionario_id'])) {
         <a href="./consultarEstoquePecas.php">Consultar Peças</a><br>
         <a href="./consultarServico.php">Consultar Serviços</a><br>
         <a href="./consultarVendas.php">Consultar Vendas</a>
+    </div>
 
-
+    <div class="button-container">
         <h3>Cadastrar</h3>
         <a href="./cadastrarCliente.php">Cadastrar Cliente </a><br>
         <a href="./cadastrarEstoqueAcessorio.php">Cadastrar Acessorios</a><br>
         <a href="./cadastrarEstoquePecas.php">Cadastrar Peças</a><br>
         <a href="./cadastrarServico.php">Cadastrar Servicos</a><br>
         <a href="./cadastrarVeiculo.php">Cadastrar Veiculos</a><br>
-        <a href="./registrarFuncionario.php">Cadastrar funcionario</a><br>
+        <a href="./cadastrarFuncionario.php">Cadastrar funcionario</a><br>
         <a href="./cadastrarPromocao.php">Cadastrar Promocao</a><br>
         <a href="./cadastrarVendas.php">Cadastrar Vendas</a>
+    </div>
+
+    <div class="button-container">
         <h3>Sair</h3>
         <a href="./logout.php">Logout</a>
     </div>
+
 </body>
 
 </html>

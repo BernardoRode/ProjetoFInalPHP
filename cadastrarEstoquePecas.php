@@ -24,16 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de peças</title>
+    <link rel="stylesheet" href="./css/cadastroEstoquePecas.css">
 </head>
 
 <body>
     <header>
         <div class="cabecalho">
-
-        <img src="./img/Logo Auto Peças (1).png" alt="Logo" class="logo">
-
+            <img src="./img/Logo Auto Peças (1).png" alt="Logo" class="logo">
             <h1 id="h1_cabecalho">XIRUZÃO AUTO PEÇAS</h1>
-
         </div>
     </header>
 

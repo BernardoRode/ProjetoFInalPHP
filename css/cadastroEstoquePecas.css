@@ -1,130 +1,113 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Estilo geral */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f5;
-    color: #333;
-    line-height: 1.6;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f3f3f3;
 }
 
-header {
-    background-color: #0e0e0e;
-    padding: 20px 0;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    height: 150px;
-}
-
-.cabecalho h1 {
-    color: #f0f0f5;
-    font-size: 35px;
-    text-align: center;
-    margin: 0;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-    position: relative;
-    left: -55px;
-}
-
-.cabecalho h3 {
-    font-size: 16px;
-    color: #f0f0f5;
-    text-align: center;
-    position: relative;
-    left: -55px;
+/* Cabeçalho */
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #003366;
+    padding: 10px 20px;
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-    max-height: 190px;
-    margin-top: 0;
-    float: left;
-    width: 190px;
-    margin-top: -40px;
-    position: relative;
-    right: -55px;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
 }
 
+#h1_cabecalho {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Container principal */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(110vh - 100px);
-    margin-top: 20px;
+    height: calc(100vh - 80px);
 }
 
 .box {
-    width: 100%;
-    max-width: 400px;
-    background-color: #fff;
-    padding: 30px;
+    background-color: white;
+    padding: 20px 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 170px;
-
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
 }
 
-.box h1 {
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#titulo {
+    font-size: 22px;
+    font-weight: bold;
     text-align: center;
-    font-size: 2rem;
     margin-bottom: 20px;
-    color: #009ec6;
+    color: #333;
 }
 
-.box label {
-    font-size: 1rem;
+label {
+    font-size: 14px;
     margin-bottom: 5px;
-    display: block;
+    color: #555;
 }
 
-.box input[type="text"],
-.box input[type="number"] {
-    width: 100%;
+input[type="text"],
+input[type="number"] {
     padding: 10px;
-    margin: 10px 0 20px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
-.box input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #0d7373;
+input[type="submit"],
+input[type="button"] {
+    background-color: #003366;
     color: white;
-    font-size: 1.1rem;
+    padding: 10px 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
+    font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.box input[type="submit"]:hover {
-    background-color: #009ec6;
-}
-
-.box p {
-    text-align: center;
-    font-size: 0.9rem;
     margin-top: 10px;
 }
 
-.box p a {
-    color: #00c6ff;
-    text-decoration: none;
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #00509e;
 }
 
-.box p a:hover {
-    text-decoration: underline;
+input[type="button"] {
+    background-color: #666;
 }
 
-.box button {
-    color: #0d7373;
+input[type="button"]:hover {
+    background-color: #444;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .box {
+        padding: 15px;
+    }
+
+    #h1_cabecalho {
+        font-size: 20px;
+    }
 }

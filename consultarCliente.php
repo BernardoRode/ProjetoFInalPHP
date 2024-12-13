@@ -21,49 +21,21 @@ if (isset($_POST['deletarCliente'])) {
 
 $dados = $clientes->obterClientesDetalhados();
 
-function saudacao() {
-    $hora = date('H');
-    if ($hora >= 6 && $hora < 12) {
-        return "Bom dia";
-    } elseif ($hora >= 12 && $hora < 18) {
-        return "Boa tarde";
-    } else {
-        return "Boa noite";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/consCliente.css">
     <title>Gerenciar Clientes</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .print-button {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/consCliente.css">
 </head>
 
 <body>
-    <h1><?= saudacao(); ?>, bem-vindo ao Gerenciador de Clientes</h1>
-    <a href="cadastrarCliente.php">Adicionar Cliente</a> <br>
-    <a href="principal.php">HOME</a>
+    <div class="cabecalho">
+        <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">
+        <h1>XIRUZÃO AUTO PEÇAS</h1>
+    </div>
     <br><br>
     <table>
         <thead>
@@ -86,7 +58,8 @@ function saudacao() {
                     <td><?= htmlspecialchars($cliente['modelo_veiculo']) ?></td>
                     <td>
                         <a href="editarCliente.php?id=<?= $cliente['id'] ?>">Editar</a>
-                        <form method="POST" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja deletar este cliente?');">
+                        <form method="POST" style="display:inline;"
+                            onsubmit="return confirm('Tem certeza que deseja deletar este cliente?');">
                             <input type="hidden" name="deletarCliente" value="<?= $cliente['id'] ?>">
                             <button type="submit">Deletar</button>
                         </form>

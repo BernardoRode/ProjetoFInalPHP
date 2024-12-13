@@ -22,24 +22,9 @@ $resultados = $vendas->obterTodasVendas();
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/consVenda.css">
+    <link rel="stylesheet" href="./css/consVenda.css">
     <title>Consulta de Vendas</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+
 </head>
 <body>
     <h1>Consulta de Vendas</h1>
@@ -71,7 +56,8 @@ $resultados = $vendas->obterTodasVendas();
             <?php endforeach; ?>
         </tbody>
     </table>
-    <br>
-    <input type="button" value="VOLTAR" onclick="history.back()">
+    <div class="back-button">
+        <input type="button" value="VOLTAR" onclick="window.location.href='principal.php'">
+    </div>
 </body>
 </html>

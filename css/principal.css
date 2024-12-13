@@ -1,93 +1,96 @@
+/* Resetando margens e padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Estilos globais */
 body {
-font-family: 'Arial', sans-serif;
-background-image: url(/img/fundo.jpeg);
-color: #333;
-line-height: 1.6;
-margin: 0;
-padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9; /* Cor de fundo suave */
+    color: #333;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
 }
 
+/* Estilo para o cabeçalho */
 header {
     background-color: #0e0e0e;
-    padding: 20px 0;
+    padding: 30px 0;
     text-align: center;
     width: 100%;
-    box-sizing: border-box;
     position: relative;
-    height: 150px;
+    height: 200px; /* Altura ajustada */
 }
 
 .cabecalho h1 {
     color: #f0f0f5;
-    font-size: 35px;
+    font-size: 2.5rem; /* Fonte escalável */
     text-align: center;
     margin: 0;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-    position: relative;
-    left: -55px;
 }
 
-.cabecalho h3 {
-    font-size: 16px;
-    color: #f0f0f5;
-    text-align: center;
-    position: relative;
-    left: -55px;
+.cabecalho img {
+    max-height: 120px;
+    margin-top: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: auto;
 }
 
-.logo {
-    max-height: 190px;
-    margin-top: 0;
-    float: left;
-    width: 190px;
-    margin-top: -40px;
-    position: relative;
-    right: -55px;
-}
-
-.message {
-    text-align: center;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    position: relative;
-    left: -60px;
-}
-
+/* Contêiner de botões */
 .button-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
     justify-content: center;
-    padding: 20px;
+    gap: 20px;
+    padding: 40px 20px;
     margin-top: 20px;
-    width: 100%;
 }
 
+.button-container h3 {
+    width: 100%;
+    font-size: 1.5rem;
+    color: #0d7373;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilos para os links de botões */
 .button-container a {
     display: inline-block;
     background-color: #0d7373;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 30px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
-    width: 180px;
-    font-size: 14px;
-    transition: background-color 0.3s;
+    width: 250px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .button-container a:hover {
     background-color: #1a8c8c;
+    transform: translateY(-5px); /* Efeito de elevação */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
 }
 
-@media (min-width: 600px) {
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    .button-container a {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
     .button-container a {
         width: 45%;
     }

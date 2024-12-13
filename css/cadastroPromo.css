@@ -1,135 +1,106 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Geral */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f5;
-    color: #333;
-    line-height: 1.6;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
+/* Cabeçalho */
 header {
-    background-color: #0e0e0e;
-    padding: 20px 0;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    height: 150px;
+    background-color: #003366;
+    color: #fff;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.cabecalho h1 {
-    color: #f0f0f5;
-    font-size: 35px;
-    text-align: center;
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cabecalho .logo {
+    height: 60px;
+}
+
+#h1_cabecalho {
+    font-size: 24px;
     margin: 0;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-    position: relative;
-    left: -55px;
+    font-weight: bold;
 }
 
-.cabecalho h3 {
-    font-size: 16px;
-    color: #f0f0f5;
-    text-align: center;
-    position: relative;
-    left: -55px;
-}
-
-.logo {
-    max-height: 190px;
-    margin-top: 0;
-    float: left;
-    width: 190px;
-    margin-top: -40px;
-    position: relative;
-    right: -55px;
-}
-
+/* Container */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(110vh - 100px);
-    margin-top: 20px;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .box {
-    width: 100%;
-    max-width: 400px;
-    background-color: #fff;
-    padding: 30px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 170px;
-
-
-
-
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
 }
 
-.box h1 {
+h1 {
     text-align: center;
-    font-size: 2rem;
+    color: #003366;
     margin-bottom: 20px;
-    color: #009ec6;
+    font-size: 26px;
 }
 
-.box label {
-    font-size: 1rem;
-    margin-bottom: 5px;
+label {
+    font-weight: bold;
+    color: #333;
     display: block;
+    margin-bottom: 8px;
 }
 
-.box input[type="text"],
-.box input[type="date"],
-.box input[type="file"],
-.box input[type="number"] {
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="file"] {
     width: 100%;
     padding: 10px;
-    margin: 10px 0 20px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     box-sizing: border-box;
-    font-size: 1rem;
+    font-size: 14px;
 }
 
-.box input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #0d7373;
-    color: white;
-    font-size: 1.1rem;
+input[type="submit"],
+input[type="button"] {
+    background-color: #003366;
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: calc(50% - 5px);
 }
 
-.box input[type="submit"]:hover {
-    background-color: #009ec6;
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #002244;
 }
 
-.box p {
-    text-align: center;
-    font-size: 0.9rem;
-    margin-top: 10px;
+input[type="button"] {
+    background-color: #999;
 }
 
-.box p a {
-    color: #00c6ff;
-    text-decoration: none;
-}
-
-.box p a:hover {
-    text-decoration: underline;
-}
-
-.box button {
-    color: #0d7373;
+input[type="button"]:hover {
+    background-color: #666;
 }
