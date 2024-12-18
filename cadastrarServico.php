@@ -54,19 +54,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/cadastroServico.css">
     <title>Cadastro de Serviço</title>
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
     <header>
         <div class="cabecalho">
-
-        <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">    
-
             <h1 id="h1_cabecalho">XIRUZÃO AUTO PEÇAS</h1>
-
         </div>
     </header>
-
     <div class="container">
         <div class="box">
 
@@ -119,8 +115,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?php endforeach; ?>
                 </select>
                 <br><br>
-                <input type="submit" value="ADICIONAR">
-                <input type="button" value="VOLTAR" onclick="history.back()">
+                <div id="fotter">
+                    <input id="botao" type="submit" value="ADICIONAR">
+                    <input id="botao" type="button" value="VOLTAR" onclick="history.back()">
+                </div>
             </form>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <?php
 include_once './config/config.php';
-include_once './classes/Estoque_acessorio.php';
+include_once './classes/Estoque_pecas.php';
 include_once './classes/Funcionario.php';
 session_start();
 $funcionarios = new Funcionario($db);
@@ -9,11 +9,11 @@ if (!isset($_SESSION['funcionario_id'])) {
     exit();
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $estoque_acessorio = new estoque_acessorio($db);
+    $Estoque_pecas = new Estoque_pecas($db);
     $nome = $_POST['nome'];
     $quantidade = $_POST['quantidade'];
     $preco = $_POST['preco'];
-    $estoque_acessorio->cadastrar($nome, $quantidade, $preco);
+    $Estoque_pecas->cadastrar($nome, $quantidade, $preco);
     header('location:index.php');
     exit();
 }
@@ -23,29 +23,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/cadastroEstAcess.css">
     <title>Cadastro de acessorios</title>
-    
+    <link rel="stylesheet" href="./css/cadastroEstAcess.css">
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
     <header>
         <div class="cabecalho">
-
-        <img src="./img/Logo Auto Peças (1).png" alt="Logo" class="logo">
-
             <h1 id="h1_cabecalho">XIRUZÃO AUTO PEÇAS</h1>
-
         </div>
     </header>
 
     <div class="container">
         <div class="box">
             <form method="POST" action="">
-                <h1 id="titulo">Cadastro de acessorios</h1>
+                <h1 id="titulo">Cadastro de peças</h1>
 
                 <label for="nome">NOME:</label><br>
-                <input type="text" id="nome" name="nome" placeholder="Digite o NOME" required>
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome do acessorio" required>
                 <br><br>
                 <label for="quantidade">quantidade:</label><br>
                 <input type="number" id="quantidade" name="quantidade" placeholder="Digite a quantidade" required>

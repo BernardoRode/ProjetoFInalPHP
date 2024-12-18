@@ -31,21 +31,16 @@ $dados = $promo->ler();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/consPromo.css">
-    <title>Portal - Promoções</title>
+    <title>Gerenciar Promoções</title>
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
     <header>
         <div class="cabecalho">
-            <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">
             <h1>XIRUZÃO AUTO PEÇAS</h1>
         </div>
     </header>
-
-    <div class="buttons">
-        <a href="cadastrarPromocao.php">Cadastrar Promoção</a>
-        <a href="logout.php">Logout</a>
-    </div>
 
     <div class="main-container">
         <h2>Promoções Ativas</h2>
@@ -53,7 +48,6 @@ $dados = $promo->ler();
         <table class="promo-table">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Descrição</th>
                     <th>Total</th>
                     <th>Início</th>
@@ -65,7 +59,6 @@ $dados = $promo->ler();
             <tbody>
                 <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
                     <tr>
-                        <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['descricao']; ?></td>
                         <td><?php echo $row['preco']; ?></td>
                         <td><?php echo $row['data_inicio']; ?></td>
@@ -78,6 +71,7 @@ $dados = $promo->ler();
                             <a href="consultarPromocao.php?deletar=<?php echo $row['id']; ?>" class="delete-link" onclick="return confirm('Tem certeza que deseja excluir esta promoção?');">Deletar</a>
                         </td>
                     </tr>
+                    
                 <?php endwhile; ?>
             </tbody>
         </table>
@@ -85,6 +79,7 @@ $dados = $promo->ler();
 
     <div class="footer">
         <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
+        <input class="voltar"type="button" value="VOLTAR" onclick="window.location.href='principal.php'">
     </div>
 </body>
 

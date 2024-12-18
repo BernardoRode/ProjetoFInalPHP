@@ -33,6 +33,7 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/editarEstAcess.css">
     <title>Editar Estoque e Acessorios</title>
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>

@@ -24,13 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de peças</title>
-    <link rel="stylesheet" href="./css/cadastroEstoquePecas.css">
+    <link rel="stylesheet" href="./css/cadastroEstAcess.css">
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
-    <header>
+<header>
         <div class="cabecalho">
-            <img src="./img/Logo Auto Peças (1).png" alt="Logo" class="logo">
             <h1 id="h1_cabecalho">XIRUZÃO AUTO PEÇAS</h1>
         </div>
     </header>
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h1 id="titulo">Cadastro de peças</h1>
 
                 <label for="nome">NOME:</label><br>
-                <input type="text" id="nome" name="nome" placeholder="Digite o NOME" required>
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome da peça" required>
                 <br><br>
                 <label for="quantidade">quantidade:</label><br>
                 <input type="number" id="quantidade" name="quantidade" placeholder="Digite a quantidade" required>

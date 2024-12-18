@@ -15,10 +15,10 @@ body {
 
 /* Cabeçalho */
 header {
-    background-color: #2d2d2d;
-    padding: 30px;
-    text-align: center;
+    background-color: #2c3e50;
     color: white;
+    padding: 10px 0;
+    text-align: center;
 }
 
 header .logo {
@@ -27,9 +27,7 @@ header .logo {
 }
 
 header h1 {
-    font-size: 36px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    margin: 0;
 }
 
 /* Botões principais */
@@ -41,7 +39,7 @@ header h1 {
 }
 
 .buttons a {
-    background-color: #007bff;
+    background-color: #2b53a8;
     color: white;
     padding: 12px 25px;
     border-radius: 5px;
@@ -51,7 +49,7 @@ header h1 {
 }
 
 .buttons a:hover {
-    background-color: #0056b3;
+    background-color: #2b53a8;
 }
 
 /* Estilos para a tabela */
@@ -78,7 +76,7 @@ header h1 {
 }
 
 .user-table th {
-    background-color: #007bff;
+    background-color: #2b53a8;
     color: white;
     font-weight: bold;
 }
@@ -90,13 +88,13 @@ header h1 {
 
 .user-table td a {
     text-decoration: none;
-    color: #007bff;
+    color: #2b53a8;
     font-weight: bold;
     margin-right: 10px;
 }
 
 .user-table td a:hover {
-    color: #0056b3;
+    color: #2b53a8;
 }
 
 .user-table tr:hover {
@@ -112,22 +110,34 @@ header h1 {
     color: #e63946;
 }
 
-/* Estilos para o botão de imprimir */
-.button.print-button {
-    display: inline-block;
-    background-color: #28a745;
+.footer {
+    display: flex
+;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-top: 2px solid #ddd;
+}
+.footer .print-button {
+    background-color: #007bff;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 25px;
     font-size: 1.1rem;
-    margin-top: 20px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
-.button.print-button:hover {
-    background-color: #218838;
+.footer .voltar {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 /* Responsividade */

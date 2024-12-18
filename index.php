@@ -31,15 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
     <title>tela de login</title>
-    <!-- <link rel="icon" type="image/png" href="./img/title32.png"> -->
     <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
     <header>
         <div class="cabecalho">
-            <img src="./img/Logo Auto Peças (1).png" alt="Logo" class="logo">
-
             <h1 id="h1_cabecalho">XIRUZÃO AUTO PEÇAS</h1>
             <h3>Faça login para acessar o sistema e
                 ajudar a manter nosso estoque sempre em movimento.</h3>

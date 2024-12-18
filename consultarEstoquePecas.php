@@ -42,14 +42,14 @@ function saudacao() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal - Estoque de Acessórios</title>
-    <link rel="stylesheet" href="./css/consEstAcess.css">
+    <title>Gerenciar Estoque de Peças</title>
+    <link rel="stylesheet" href="./css/consEstPecas.css">
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
     <header>
         <div class="cabecalho">
-            <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">
             <h1>XIRUZÃO AUTO PEÇAS</h1>
         </div>
     </header>
@@ -58,7 +58,6 @@ function saudacao() {
         <table class="user-table">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nome</th>
                     <th>Quantidade</th>
                     <th>Preço</th>
@@ -68,7 +67,6 @@ function saudacao() {
             <tbody>
                 <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
                     <tr>
-                        <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['nome']; ?></td>
                         <td><?php echo $row['quantidade']; ?></td>
                         <td><?php echo $row['preco']; ?></td>
@@ -84,6 +82,7 @@ function saudacao() {
 
     <div class="footer">
         <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
+        <input class="voltar"type="button" value="VOLTAR" onclick="window.location.href='principal.php'">
     </div>
 </body>
 

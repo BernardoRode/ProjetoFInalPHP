@@ -18,15 +18,15 @@ if (!isset($_SESSION['funcionario_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>XIRUZÃO AUTO PEÇAS</title>
     <link rel="stylesheet" href="./css/principal.css">
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
     <header>
         <div class="cabecalho">
-            <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">
-            <h1 id="h1_cabecalho">XIRUZÃO AUTO PEÇAS</h1>
+            <h1>XIRUZÃO AUTO PEÇAS</h1>
         </div>
     </header>
 

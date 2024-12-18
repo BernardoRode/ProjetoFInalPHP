@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/redefinirSenha.css">
     <title>Redefinir Senha</title>
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>

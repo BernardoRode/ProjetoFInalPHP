@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/editar.css">
     <title>Editar Usuário</title>
-    
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 <body>
 <header>

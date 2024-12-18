@@ -47,17 +47,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/cadastroPromo.css">
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
     <title>Cadastro de Promoção</title>
 </head>
 
 <body>
-    <header>
+<header>
         <div class="cabecalho">
-
-        <img src="./img/Logo Auto Peças (1).png" alt="Logo" class="logo">
-
             <h1 id="h1_cabecalho">XIRUZÃO AUTO PEÇAS</h1>
-
         </div>
     </header>
 
@@ -86,8 +83,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="file" id="imagem" name="imagem" required>
                 <br><br>
 
-                <input type="submit" value="ADICIONAR">
-                <input type="button" value="VOLTAR" onclick="history.back()">
+                <div id="fotter">
+                    <input id="botao" type="submit" value="ADICIONAR">
+                    <input id="botao" type="button" value="VOLTAR" onclick="history.back()">
+                </div>
             </form>
         </div>
     </div>

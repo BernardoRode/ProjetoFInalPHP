@@ -68,13 +68,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/cadastroVenda.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Serviço</title>
+    <title>Cadastro de Vendas</title>
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
+    
     <div class="container">
         <form method="POST" class="form-card">
-            <h1>Cadastro de Serviço</h1>
+            <h1>Cadastro de vendas</h1>
 
             <div class="form-group">
                 <label for="data_venda">Data da Venda</label>

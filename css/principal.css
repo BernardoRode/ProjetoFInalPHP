@@ -8,7 +8,7 @@
 /* Estilos globais */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9; /* Cor de fundo suave */
+    background-image: url(img/fundo.webp);
     color: #333;
     line-height: 1.6;
     padding: 0;
@@ -17,12 +17,10 @@ body {
 
 /* Estilo para o cabeçalho */
 header {
-    background-color: #0e0e0e;
-    padding: 30px 0;
+    background-color: #0d7373;
+    color: white;
+    padding: 10px 0;
     text-align: center;
-    width: 100%;
-    position: relative;
-    height: 200px; /* Altura ajustada */
 }
 
 .cabecalho h1 {

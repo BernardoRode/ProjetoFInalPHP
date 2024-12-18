@@ -29,46 +29,55 @@ $dados = $clientes->obterClientesDetalhados();
     <meta charset="UTF-8">
     <title>Gerenciar Clientes</title>
     <link rel="stylesheet" href="./css/consCliente.css">
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
-    <div class="cabecalho">
-        <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">
-        <h1>XIRUZÃO AUTO PEÇAS</h1>
-    </div>
+    <header>
+        <div class="cabecalho">
+            <h1>XIRUZÃO AUTO PEÇAS</h1>
+        </div>
+    </header>
     <br><br>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>CPF</th>
-                <th>Nome</th>
-                <th>CEP</th>
-                <th>Veículo</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($dados as $cliente): ?>
+
+    <div class="main-container">
+        <table>
+            <thead>
                 <tr>
-                    <td><?= htmlspecialchars($cliente['id']) ?></td>
-                    <td><?= htmlspecialchars($cliente['cpf']) ?></td>
-                    <td><?= htmlspecialchars($cliente['nome']) ?></td>
-                    <td><?= htmlspecialchars($cliente['cep']) ?></td>
-                    <td><?= htmlspecialchars($cliente['modelo_veiculo']) ?></td>
-                    <td>
-                        <a href="editarCliente.php?id=<?= $cliente['id'] ?>">Editar</a>
-                        <form method="POST" style="display:inline;"
-                            onsubmit="return confirm('Tem certeza que deseja deletar este cliente?');">
-                            <input type="hidden" name="deletarCliente" value="<?= $cliente['id'] ?>">
-                            <button type="submit">Deletar</button>
-                        </form>
-                    </td>
+                    <th>CPF</th>
+                    <th>Nome</th>
+                    <th>CEP</th>
+                    <th>Veículo</th>
+                    <th>Ações</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
+            </thead>
+            <tbody>
+                <?php foreach ($dados as $cliente): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($cliente['cpf']) ?></td>
+                        <td><?= htmlspecialchars($cliente['nome']) ?></td>
+                        <td><?= htmlspecialchars($cliente['cep']) ?></td>
+                        <td><?= htmlspecialchars($cliente['modelo_veiculo']) ?></td>
+                        <td>
+                            <a href="editarCliente.php?id=<?= $cliente['id'] ?>">Editar</a>
+                            <form method="POST" style="display:inline;"
+                                onsubmit="return confirm('Tem certeza que deseja deletar este cliente?');">
+                                <input type="hidden" name="deletarCliente" value="<?= $cliente['id'] ?>">
+                                <button type="submit">Deletar</button>
+
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>    
+    </div>
+
+
+    <div class="footer">
+        <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
+        <input class="voltar" type="button" value="VOLTAR" onclick="window.location.href='principal.php'">
+    </div>
 </body>
 
 </html>

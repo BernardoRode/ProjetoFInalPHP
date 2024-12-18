@@ -39,15 +39,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/cadastroVeiculo.css">
     <title>Cadastro de veiculos</title>
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
-    <header>
+<header>
         <div class="cabecalho">
-
-        <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">
             <h1 id="h1_cabecalho">XIRUZÃO AUTO PEÇAS</h1>
-
         </div>
     </header>
 
@@ -62,7 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <br><br>
 
                 <label for="modelo">Modelo:</label><br>
-                <input type="modelo" id="modelo" name="modelo" placeholder="Digite o modelo" required oninput="mascaraCPF(this)">
+                <input type="modelo" id="modelo" name="modelo" placeholder="Digite o modelo" required
+                    oninput="mascaraCPF(this)">
                 <br><br>
 
                 <label for="marca">Marca:</label><br>
@@ -71,8 +70,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="ano">Ano:</label><br>
                 <input type="ano" id="ano" name="ano" placeholder="Digite o ano" required>
                 <br><br>
-                <input id="botao" type="submit" value="ADICIONAR"><br>
-                <button id="botao"><a href="principal.php">VOLTAR</a></button>
+                <div id="fotter">
+                    <input id="botao" type="submit" value="ADICIONAR">
+                    <input id="botao" type="button" value="VOLTAR" onclick="history.back()">
+                </div>
             </form>
         </div>
     </div>

@@ -39,14 +39,14 @@ function saudacao()
 
 <head>
     <meta charset="UTF-8">
-    <title>Portal - Funcionários</title>
+    <title>Gerenciar Funcionarios</title>
     <link rel="stylesheet" href="./css/consFunc.css">
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
     <header>
         <div class="cabecalho">
-            <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">
             <h1>XIRUZÃO AUTO PEÇAS</h1>
         </div>
     </header>
@@ -57,7 +57,6 @@ function saudacao()
         <table class="user-table">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nome</th>
                     <th>E-mail</th>
                     <th>Ação</th>
@@ -66,7 +65,6 @@ function saudacao()
             <tbody>
                 <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)): ?>
                     <tr>
-                        <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['nome']; ?></td>
                         <td><?php echo $row['email']; ?></td>
                         <td>
@@ -75,9 +73,14 @@ function saudacao()
                                 onclick="return confirm('Tem certeza que deseja deletar este funcionário?');">Deletar</a>
                         </td>
                     </tr>
+                    
                 <?php endwhile; ?>
             </tbody>
         </table>
+        <div class="footer">
+        <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
+        <input class="voltar"type="button" value="VOLTAR" onclick="window.location.href='principal.php'">
+    </div>
     </div>
 </body>
 

@@ -47,6 +47,7 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/editarPecas.css">
     <title>Editar Peça</title>
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 <body>
 <header>

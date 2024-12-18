@@ -20,14 +20,20 @@ $resultados = $vendas->obterTodasVendas();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/consVenda.css">
-    <title>Consulta de Vendas</title>
-
+    <title>Gerenciar Vendas</title>
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
+
 <body>
-    <h1>Consulta de Vendas</h1>
+    <header>
+        <div class="cabecalho">
+            <h1>XIRUZÃO AUTO PEÇAS</h1>
+        </div>
+    </header>
     <table>
         <thead>
             <tr>
@@ -56,8 +62,10 @@ $resultados = $vendas->obterTodasVendas();
             <?php endforeach; ?>
         </tbody>
     </table>
-    <div class="back-button">
-        <input type="button" value="VOLTAR" onclick="window.location.href='principal.php'">
+    <div class="footer">
+        <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
+        <input class="voltar" type="button" value="VOLTAR" onclick="window.location.href='principal.php'">
     </div>
 </body>
+
 </html>

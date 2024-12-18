@@ -38,7 +38,8 @@ foreach ($clientes as $c) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/consServico.css">
-    <title>Gerenciamento de Serviços</title>
+    <title>Gerenciar Serviços</title>
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
@@ -47,43 +48,44 @@ foreach ($clientes as $c) {
             <h1>XIRUZÃO AUTO PEÇAS</h1>
         </div>
     </header>
-
-    <nav>
-        <a href="cadastrarServico.php">Cadastrar Serviço</a>
-        <a href="logout.php">Logout</a>
-    </nav>
-
-    <h2>Lista de Serviços</h2>
-    
-    <table border="1" class="servico-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Tipo de Serviço</th>
-                <th>Data</th>
-                <th>Valor</th>
-                <th>Cliente</th>
-                <th>Veículo</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
+    <div class="main-container">
+        <table border="1" class="servico-table">
+            <thead>
                 <tr>
-                    <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['tipo_servico']; ?></td>
-                    <td><?php echo $row['data_servico']; ?></td>
-                    <td><?php echo $row['valor']; ?></td>
-                    <td><?php echo isset($clienteMap[$row['cliente_id']]) ? $clienteMap[$row['cliente_id']] : 'N/A'; ?></td>
-                    <td><?php echo isset($veiculoMap[$row['veiculo_id']]) ? $veiculoMap[$row['veiculo_id']] : 'N/A'; ?></td>
-                    <td>
-                        <a href="editarServico.php?id=<?php echo $row['id']; ?>">Editar</a>
-                        <a href="consultarServico.php?deletar=<?php echo $row['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir este serviço?');">Deletar</a>
-                    </td>
+                    <th>Tipo de Serviço</th>
+                    <th>Data</th>
+                    <th>Valor</th>
+                    <th>Cliente</th>
+                    <th>Veículo</th>
+                    <th>Ações</th>
                 </tr>
-            <?php endwhile; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)): ?>
+                    <tr>
+                        <td><?php echo $row['tipo_servico']; ?></td>
+                        <td><?php echo $row['data_servico']; ?></td>
+                        <td><?php echo $row['valor']; ?></td>
+                        <td><?php echo isset($clienteMap[$row['cliente_id']]) ? $clienteMap[$row['cliente_id']] : 'N/A'; ?>
+                        </td>
+                        <td><?php echo isset($veiculoMap[$row['veiculo_id']]) ? $veiculoMap[$row['veiculo_id']] : 'N/A'; ?>
+                        </td>
+                        <td>
+                            <a href="editarServico.php?id=<?php echo $row['id']; ?>">Editar</a>
+                            <a href="consultarServico.php?deletar=<?php echo $row['id']; ?>"
+                                onclick="return confirm('Tem certeza que deseja excluir este serviço?');">Deletar</a>
+                        </td>
+                    </tr>
+
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
+        <input class="voltar" type="button" value="VOLTAR" onclick="window.location.href='principal.php'">
+    </div>
 </body>
 
 </html>

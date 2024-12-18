@@ -37,13 +37,13 @@ $dados = $clientes->ler();
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/consVeiculo.css">
-    <title>Portal - Consultar Veículos</title>
+    <title>Gerenciar Veículos</title>
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
     <header>
         <div class="cabecalho">
-            <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">
             <h1>XIRUZÃO AUTO PEÇAS</h1>
         </div>
     </header>
@@ -52,7 +52,6 @@ $dados = $clientes->ler();
         <table class="user-table">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Placa</th>
                     <th>Modelo</th>
                     <th>Marca</th>
@@ -63,22 +62,27 @@ $dados = $clientes->ler();
             <tbody>
                 <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)): ?>
                     <tr>
-                        <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['placa']; ?></td>
                         <td><?php echo $row['modelo']; ?></td>
                         <td><?php echo $row['marca']; ?></td>
                         <td><?php echo $row['ano']; ?></td>
                         <td>
                             <a href="editarVeiculo.php?id=<?php echo $row['id']; ?>">Editar</a>
-                            <a href="consultarVeiculo.php?deletar=<?php echo $row['id']; ?>" onclick="return confirm('Tem certeza que deseja deletar este veículo?');">Deletar</a>
+                            <a href="consultarVeiculo.php?deletar=<?php echo $row['id']; ?>"
+                                onclick="return confirm('Tem certeza que deseja deletar este veículo?');">Deletar</a>
                         </td>
                     </tr>
+
                 <?php endwhile; ?>
             </tbody>
         </table>
+
     </div>
 
-    <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
+    <div class="footer">
+        <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
+        <input class="voltar"type="button" value="VOLTAR" onclick="window.location.href='principal.php'">
+    </div>
 </body>
 
 </html>

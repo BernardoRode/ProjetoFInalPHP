@@ -19,37 +19,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/solicitarRecup.css">
+    <link rel="stylesheet" href="./css/solicitarRecup.css">
     <title>Recuperar Senha</title>
+    <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
+
 <body>
-<header>
+    <header>
         <div class="cabecalho">
-
-        <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">
-
             <h1 id="h1_cabecalho">XIRUZÃO AUTO PEÇAS</h1>
-            <h3>Faça login para acessar o sistema e
-                ajudar a manter nosso estoque sempre em movimento.</h3>
+            <h3></h3>
         </div>
     </header>
 
 
     <div class="container">
         <div class="box">
-    <form method="POST">
-    <h1>Recuperar Senha</h1>
+            <form method="POST">
+                <h1>Recuperar Senha</h1>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" required><br><br>
-        <input type="submit" value="Enviar">
-    </form>
-    </div>
-    <p><?php echo $mensagem; ?></p>
-    <div class="button-container">
-    <a href="index.php">Voltar</a>
-    </div>
+                <label for="email">Email:</label>
+                <input type="email" name="email" required><br><br>
+                <input type="submit" value="Enviar">
+                <br>
+                <input type="submit" value="VOLTAR" onclick="window.location.href='principal.php'">
+            </form>
+        </div>
 </body>
+
 </html>
