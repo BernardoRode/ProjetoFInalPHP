@@ -12,7 +12,7 @@ if (isset($_POST['deletarCliente'])) {
     try {
         $id = $_POST['deletarCliente'];
         $clientes->deletarCliente($id);
-        header('location:index.php');
+        header('location:consultarCliente.php');
         exit();
     } catch (Exception $e) {
         echo '<p style="color: red;">Erro ao excluir cliente: ' . $e->getMessage() . '</p>';

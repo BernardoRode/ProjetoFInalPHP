@@ -52,51 +52,43 @@ if (isset($_POST['atualizarCliente'])) {
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/editarCliente.css">
+    <link rel="stylesheet" href="./css/editarCliente.css">
     <title>Editar Cliente</title>
     <link rel="shortcut icon" href="./img/title32.png" type="image/png">
 </head>
 
 <body>
-<header>
+    <header>
         <div class="cabecalho">
-
-        <img src="./img/logo-tipo-semfundo.png" alt="Logo" class="logo">
             <h1 id="h1_cabecalho">XIRUZÃO AUTO PEÇAS</h1>
-            <h3>Faça login para acessar o sistema e
-                ajudar a manter nosso estoque sempre em movimento.</h3>
         </div>
     </header>
+    <div class="box">
 
+        <form method="post">
+            <label for="cpf">CPF:</label>
+            <input type="text" name="cpf" id="cpf" value="<?php echo $cliente['cpf']; ?>" required><br><br>
 
-    <div class="container">
-        <div class="box">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" value="<?php echo $cliente['nome']; ?>" required><br><br>
 
-    <form method="post">
-        <label for="cpf">CPF:</label>
-        <input type="text" name="cpf" id="cpf" value="<?php echo $cliente['cpf']; ?>" required><br><br>
+            <label for="cep">CEP:</label>
+            <input type="text" name="cep" id="cep" value="<?php echo $cliente['cep']; ?>" required><br><br>
 
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" value="<?php echo $cliente['nome']; ?>" required><br><br>
-
-        <label for="cep">CEP:</label>
-        <input type="text" name="cep" id="cep" value="<?php echo $cliente['cep']; ?>" required><br><br>
-
-        <label for="veiculo">Veículo:</label><br>
-        <!-- CAIXA DE SELEÇÃO SELECT PARA SELECIONAR O MODELO DO VEICULO -->
-        <select id="veiculo_id" name="veiculo_id" required>
-            <option value="">-- Selecione um veículo --</option>
-            <?php foreach ($vei as $v): ?>
-                <option value="<?= $v['id'] ?>">
-                    <?= $v['modelo'] ?> <!-- Exibe o modelo do veículo -->
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <a href="portal.php">Voltar</a> <br><br>
-        <button type="submit" name="atualizarCliente">Atualizar</button>
-    </form>
-</div>    
-</div>
+            <label for="veiculo">Veículo:</label><br>
+            <!-- CAIXA DE SELEÇÃO SELECT PARA SELECIONAR O MODELO DO VEICULO -->
+            <select id="veiculo_id" name="veiculo_id" required>
+                <option value="">-- Selecione um veículo --</option>
+                <?php foreach ($vei as $v): ?>
+                    <option value="<?= $v['id'] ?>">
+                        <?= $v['modelo'] ?> <!-- Exibe o modelo do veículo -->
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <button type="submit" name="atualizarCliente">Atualizar</button>
+        </form>
+    </div>
+    </div>
 </body>
 
 </html>

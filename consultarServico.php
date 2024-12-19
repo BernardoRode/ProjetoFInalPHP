@@ -5,6 +5,7 @@ include_once './classes/Veiculo.php';
 include_once './classes/Funcionario.php';
 include_once './classes/Servico.php';
 include_once './classes/Cliente.php';
+include_once './classes/Venda.php';
 
 $funcionarios = new Funcionario($db);
 if (!isset($_SESSION['funcionario_id'])) {
@@ -12,10 +13,23 @@ if (!isset($_SESSION['funcionario_id'])) {
     exit();
 }
 
-$servico = new Servicos($db);  // Corrigido: Servicos para Servico
+$servico = new Servicos($db);  // Corrigido: 'Servicos' para 'Servico'
 $dados = $servico->ler();
 $veiculo = new Veiculo($db);
 $cliente = new Cliente($db);
+
+$servico = new Servicos($db);
+
+if (isset($_POST['deletar'])) {
+    try {
+        $id = $_POST['deletar'];
+        $servico->deletar($id);
+        header('location:consultarServico.php');
+        exit();
+    } catch (Exception $e) {
+        echo '<p style="color: red;">Erro ao excluir cliente: ' . $e->getMessage() . '</p>';
+    }
+}
 
 $veiculos = $veiculo->obterVeiculos();
 $clientes = $cliente->obterCliente();
@@ -30,6 +44,19 @@ foreach ($clientes as $c) {
     $clienteMap[$c['id']] = $c['nome'];
 }
 
+// Verificação de exclusão
+if (isset($_GET['deletar'])) {
+    $id = $_GET['deletar'];
+
+    // Chame o método para deletar o serviço
+    if ($servico->deletar($id)) {
+        // Caso a exclusão seja bem-sucedida, redirecione de volta para a lista de serviços
+        header('Location: consultarServico.php');
+        exit();
+    } else {
+        echo "<script>alert('Erro ao deletar o serviço.');</script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -71,9 +98,11 @@ foreach ($clientes as $c) {
                         <td><?php echo isset($veiculoMap[$row['veiculo_id']]) ? $veiculoMap[$row['veiculo_id']] : 'N/A'; ?>
                         </td>
                         <td>
-                            <a href="editarServico.php?id=<?php echo $row['id']; ?>">Editar</a>
-                            <a href="consultarServico.php?deletar=<?php echo $row['id']; ?>"
-                                onclick="return confirm('Tem certeza que deseja excluir este serviço?');">Deletar</a>
+                            <!-- O formulário agora está correto -->
+                            <form method="POST" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja deletar este funcionário?');">
+                                <input type="hidden" name="deletar" value="<?= $row['id'] ?>">
+                                <button type="submit">Deletar</button>
+                            </form>
                         </td>
                     </tr>
 

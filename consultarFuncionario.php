@@ -7,16 +7,23 @@ include_once './classes/Funcionario.php';
 
 $funcionarios = new Funcionario($db);
 
+// Verificando se o usuário está logado
 if (!isset($_SESSION['funcionario_id'])) {
     header('Location: index.php');
     exit();
 }
 
-if (isset($_GET['deletar'])) {
-    $id = $_GET['deletar'];
-    $funcionarios->deletar($id);
-    header('Location: consultarEstoquePecas.php');
-    exit();
+if (isset($_POST['deletar'])) {
+    try {
+        $id = $_POST['deletar'];
+        
+        
+        $funcionarios->deletarFuncionario($id); // Supondo que a classe Funcionario tenha o método deletar
+        header('location:consultarFuncionario.php');
+        exit();
+    } catch (Exception $e) {
+        echo '<p style="color: red;">Erro ao excluir funcionário: ' . $e->getMessage() . '</p>';
+    }
 }
 
 $dados = $funcionarios->ler();
@@ -51,8 +58,6 @@ function saudacao()
         </div>
     </header>
 
-
-
     <div class="main-container">
         <table class="user-table">
             <thead>
@@ -67,20 +72,21 @@ function saudacao()
                     <tr>
                         <td><?php echo $row['nome']; ?></td>
                         <td><?php echo $row['email']; ?></td>
-                        <td>
-                            <a href="editarEstoqueAcessorio.php?id=<?php echo $row['id']; ?>">Editar</a>
-                            <a href="consultarFuncionario.php?deletar=<?php echo $row['id']; ?>"
-                                onclick="return confirm('Tem certeza que deseja deletar este funcionário?');">Deletar</a>
+                        <td>    
+                            <!-- O formulário agora está correto -->
+                            <form method="POST" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja deletar este funcionário?');">
+                                <input type="hidden" name="deletar" value="<?= $row['id'] ?>">
+                                <button type="submit">Deletar</button>
+                            </form>
                         </td>
                     </tr>
-                    
                 <?php endwhile; ?>
             </tbody>
         </table>
         <div class="footer">
-        <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
-        <input class="voltar"type="button" value="VOLTAR" onclick="window.location.href='principal.php'">
-    </div>
+            <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
+            <input class="voltar" type="button" value="VOLTAR" onclick="window.location.href='principal.php'">
+        </div>
     </div>
 </body>
 

@@ -57,7 +57,7 @@ class Funcionario
         }
     }
 
-    public function deletar($id)
+    public function deletarFuncionario($id)
     {
         $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
         $stmt = $this->conn->prepare($query);

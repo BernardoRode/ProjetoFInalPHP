@@ -15,16 +15,21 @@ if (!isset($_SESSION['funcionario_id'])) {
 $usuario = new usuario($db);
 $estoque_acessorios = new Estoque_acessorio($db);
 
-if (isset($_GET['deletar'])) {
-    $id = $_GET['deletar'];
-    $estoque_acessorios->deletar($id);
-    header('Location: consultarEstoqueAcessorio.php');
-    exit();
+if (isset($_POST['deletar'])) {
+    try {
+        $id = $_POST['deletar'];
+        $estoque_acessorios->deletar($id);
+        header('location:consultarEstoqueAcessorio.php');
+        exit();
+    } catch (Exception $e) {
+        echo '<p style="color: red;">Erro ao excluir cliente: ' . $e->getMessage() . '</p>';
+    }
 }
 
 $dados = $estoque_acessorios->ler();
 
-function saudacao() {
+function saudacao()
+{
     $hora = date('H');
     if ($hora >= 6 && $hora < 12) {
         return "Bom dia";
@@ -72,7 +77,10 @@ function saudacao() {
                         <td><?php echo $row['preco']; ?></td>
                         <td>
                             <a href="editarEstoqueAcessorio.php?id=<?php echo $row['id']; ?>">Editar</a>
-                            <a href="consultarEstoqueAcessorio.php?deletar=<?php echo $row['id']; ?>" onclick="return confirm('Tem certeza que deseja deletar este item?');">Deletar</a>
+                            <form method="POST" style="display:inline;"
+                                onsubmit="return confirm('Tem certeza que deseja deletar este Veiculo?');">
+                                <input type="hidden" name="deletar" value="<?= $row['id'] ?>">
+                                <button type="submit">Deletar</button>
                         </td>
                     </tr>
                 <?php endwhile; ?>
@@ -82,7 +90,7 @@ function saudacao() {
 
     <div class="footer">
         <button class="button print-button" onclick="window.print()">Imprimir Tabela</button>
-        <input class="voltar"type="button" value="VOLTAR" onclick="window.location.href='principal.php'">
+        <input class="voltar" type="button" value="VOLTAR" onclick="window.location.href='principal.php'">
     </div>
 </body>
 

@@ -1,117 +1,150 @@
+/* Resetando margens e preenchimentos padrões */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Corpo da página */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
     color: #333;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
 }
 
+/* Cabeçalho */
 header {
-    background-color: #0e0e0e;
+    background-color: #007bff;
     color: white;
-    padding: 20px 0;
     text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    border-bottom: 2px solid #0047b3;
-    position: relative;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
+#h1_cabecalho {
     font-size: 2.5rem;
+    letter-spacing: 1px;
     margin: 0;
 }
 
-header h3 {
-    font-size: 1.5rem;
-    margin-top: 10px;
-    font-weight: 700;
-    color: #fff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-}
-
+/* Container principal */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 160px);
-    padding: 20px;
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
 }
 
-form {
-    margin: 30px auto;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
+/* Caixa do formulário */
+.box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-.box h1 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #0062cc;
-}
-
-.box label {
-    font-size: 1rem;
-    margin-bottom: 5px;
+/* Estilos dos rótulos */
+label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #555;
     display: block;
+    margin-bottom: 8px;
 }
 
-.box input[type="text"],
-.box input[type="email"],
-.box input[type="tel"] {
+/* Estilos para os inputs */
+input[type="text"], select {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0 20px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
+    padding: 12px;
     font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.box input[type="radio"] {
-    margin-right: 10px;
+/* Efeito de foco nos campos */
+input[type="text"]:focus, select:focus {
+    border-color: #007bff;
+    background-color: #e9f7ff;
+    outline: none;
 }
 
-.box input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #0062cc;
+/* Estilo do botão de imprimir */
+.print-button {
+    background-color: #4CAF50;
     color: white;
+    padding: 12px 20px;
     font-size: 1.1rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    text-align: center;
     transition: background-color 0.3s ease;
+    width: 48%;
+    margin-right: 4%;
 }
 
-.box input[type="submit"]:hover {
-    background-color: #009ec6;
+.print-button:hover {
+    background-color: #45a049;
 }
 
-.mensagem p {
-    color: #f44336;
-    text-align: center;
-    margin-top: 10px;
-    font-size: 1rem;
-}
-
-.footer {
-    text-align: center;
-    padding: 15px;
-    background-color: #333;
+/* Estilo do botão voltar */
+.voltar {
+    background-color: #f44336;
     color: white;
-    margin-top: 50px;
-    width: 100%;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    width: 48%;
+}
+
+.voltar:hover {
+    background-color: #e53935;
+}
+
+/* Ajustes para o layout em telas menores */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .box {
+        padding: 20px;
+    }
+
+    #h1_cabecalho {
+        font-size: 2rem;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer button, .footer input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+/* Estilos para mensagens de erro */
+p {
+    font-size: 1.1rem;
+    color: red;
+    text-align: center;
+    margin-top: 20px;
 }

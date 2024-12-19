@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $quantidade = $_POST['quantidade'];
     $preco = $_POST['preco'];
     $Estoque_pecas->cadastrar($nome, $quantidade, $preco);
-    header('location:index.php');
+    header('location:principal.php');
     exit();
 }
 ?>

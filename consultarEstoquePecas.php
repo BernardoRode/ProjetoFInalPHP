@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once './config/config.php';
-include_once './classes/Estoque_acessorio.php';
+include_once './classes/Estoque_pecas.php';
 include_once './classes/usuario.php';
 include_once './classes/Funcionario.php';
 
@@ -13,16 +13,23 @@ if (!isset($_SESSION['funcionario_id'])) {
 }
 
 $usuario = new usuario($db);
-$estoque_acessorios = new Estoque_acessorio($db);
+$Estoque_pecas = new Estoque_pecas($db);
 
+$dados = $Estoque_pecas->ler();
+
+// Verifica se o ID de exclusão foi passado via GET
 if (isset($_GET['deletar'])) {
-    $id = $_GET['deletar'];
-    $estoque_acessorios->deletar($id);
-    header('Location: consultarEstoqueAcessorio.php');
-    exit();
-}
+    try {
+        $id = $_GET['deletar']; // Captura o ID da peça a ser excluída
 
-$dados = $estoque_acessorios->ler();
+        // Chama o método para deletar a peça
+        $Estoque_pecas->deletarPecas($id);
+        header('location:consultarEstoquePecas.php'); // Redireciona após exclusão
+        exit();
+    } catch (Exception $e) {
+        echo '<p style="color: red;">Erro ao excluir peça: ' . $e->getMessage() . '</p>';
+    }
+}
 
 function saudacao() {
     $hora = date('H');
@@ -72,7 +79,7 @@ function saudacao() {
                         <td><?php echo $row['preco']; ?></td>
                         <td>
                             <a href="editarEstoqueAcessorio.php?id=<?php echo $row['id']; ?>">Editar</a>
-                            <a href="consultarEstoqueAcessorio.php?deletar=<?php echo $row['id']; ?>" onclick="return confirm('Tem certeza que deseja deletar este item?');">Deletar</a>
+                            <a href="consultarEstoquePecas.php?deletar=<?php echo $row['id']; ?>" onclick="return confirm('Tem certeza que deseja deletar este item?');">Deletar</a>
                         </td>
                     </tr>
                 <?php endwhile; ?>

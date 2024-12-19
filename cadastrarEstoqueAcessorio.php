@@ -1,6 +1,6 @@
 <?php
 include_once './config/config.php';
-include_once './classes/Estoque_pecas.php';
+include_once './classes/Estoque_acessorio.php';
 include_once './classes/Funcionario.php';
 session_start();
 $funcionarios = new Funcionario($db);
@@ -9,12 +9,12 @@ if (!isset($_SESSION['funcionario_id'])) {
     exit();
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $Estoque_pecas = new Estoque_pecas($db);
+    $estoque_acessorio = new estoque_acessorio($db);
     $nome = $_POST['nome'];
     $quantidade = $_POST['quantidade'];
     $preco = $_POST['preco'];
-    $Estoque_pecas->cadastrar($nome, $quantidade, $preco);
-    header('location:index.php');
+    $estoque_acessorio->cadastrar($nome, $quantidade, $preco);
+    header('location:principal.php');
     exit();
 }
 ?>
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <div class="box">
             <form method="POST" action="">
-                <h1 id="titulo">Cadastro de peças</h1>
+                <h1 id="titulo">Cadastro de acessorio</h1>
 
                 <label for="nome">NOME:</label><br>
                 <input type="text" id="nome" name="nome" placeholder="Digite o nome do acessorio" required>

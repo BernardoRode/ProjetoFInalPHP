@@ -66,8 +66,7 @@ $dados = $promo->ler();
                         <td>
                             <img src="<?php echo $row['imagem']; ?>" alt="Imagem Promoção" class="promo-image">
                         </td>
-                        <td>
-                            <a href="editarPromocao.php?id=<?php echo $row['id']; ?>" class="edit-link">Editar</a>
+                        <td>    
                             <a href="consultarPromocao.php?deletar=<?php echo $row['id']; ?>" class="delete-link" onclick="return confirm('Tem certeza que deseja excluir esta promoção?');">Deletar</a>
                         </td>
                     </tr>

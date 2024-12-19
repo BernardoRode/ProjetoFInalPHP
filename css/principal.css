@@ -8,7 +8,11 @@
 /* Estilos globais */
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url(img/fundo.webp);
+    background-image: url("../img/fundo.jpeg"); /* Ajuste para o caminho correto da imagem */
+    background-size: cover;  /* Faz a imagem cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    background-attachment: fixed; /* Faz a imagem de fundo fixar enquanto o conteúdo rola */
     color: #333;
     line-height: 1.6;
     padding: 0;
@@ -17,7 +21,7 @@ body {
 
 /* Estilo para o cabeçalho */
 header {
-    background-color: #0d7373;
+    background-color: #000000;
     color: white;
     padding: 10px 0;
     text-align: center;
@@ -53,7 +57,7 @@ header {
 .button-container h3 {
     width: 100%;
     font-size: 1.5rem;
-    color: #0d7373;
+    color: #00fd68;
     text-align: center;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -63,7 +67,7 @@ header {
 /* Estilos para os links de botões */
 .button-container a {
     display: inline-block;
-    background-color: #0d7373;
+    background-color: #000000;
     color: white;
     padding: 15px 30px;
     text-decoration: none;

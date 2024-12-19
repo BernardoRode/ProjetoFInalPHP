@@ -10,26 +10,19 @@ if (!isset($_SESSION['funcionario_id'])) {
     exit();
 }
 
-if (isset($_GET['deletar'])) {
-    $id = $_GET['deletar'];
-    $funcionarios->deletar($id);
-    header('Location: consultarVeiculo.php');
-    exit();
-}
+$veiculo = new Veiculo($db);
 
-$clientes = new Veiculo($db);
-
-if (isset($_POST['deletarVeiculo'])) {
+if (isset($_POST['deletar'])) {
     try {
-        $id = $_GET['deletarVeiculo'];
-        $clientes->deletar($id);
-        header('location:index.php');
+        $id = $_POST['deletar'];
+        $veiculo->deletar($id);
+        header('location:consultarVeiculo.php');
         exit();
     } catch (Exception $e) {
-        echo '<p style="color: red;">Erro ao excluir veículo: ' . $e->getMessage() . '</p>';
+        echo '<p style="color: red;">Erro ao excluir cliente: ' . $e->getMessage() . '</p>';
     }
 }
-$dados = $clientes->ler();
+$dados = $veiculo->ler();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -68,8 +61,10 @@ $dados = $clientes->ler();
                         <td><?php echo $row['ano']; ?></td>
                         <td>
                             <a href="editarVeiculo.php?id=<?php echo $row['id']; ?>">Editar</a>
-                            <a href="consultarVeiculo.php?deletar=<?php echo $row['id']; ?>"
-                                onclick="return confirm('Tem certeza que deseja deletar este veículo?');">Deletar</a>
+                            <form method="POST" style="display:inline;"
+                                onsubmit="return confirm('Tem certeza que deseja deletar este Veiculo?');">
+                                <input type="hidden" name="deletar" value="<?= $row['id'] ?>">
+                                <button type="submit">Deletar</button>
                         </td>
                     </tr>
 

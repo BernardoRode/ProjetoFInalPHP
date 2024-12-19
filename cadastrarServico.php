@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validando se os dados foram preenchidos corretamente
     if ($tipo_servico && $data_servico && $valor && $cliente_id && $veiculo_id) {
         $Servicos->cadastrarServico($tipo_servico, $data_servico, $valor, $cliente_id, $veiculo_id);
-        header('Location: index.php');
+        header('Location: principal.php');
         exit();
     } else {
         echo "Todos os campos são obrigatórios.";
